@@ -2,7 +2,7 @@
 
 class Response {
 
-    public static protected $_STATUS_TEXT = [
+    public static $_STATUS_TEXT = [
         '100' => 'Continue',
         '101' => 'Switching Protocols',
         '200' => 'OK',

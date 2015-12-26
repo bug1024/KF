@@ -1,5 +1,7 @@
 <?php
 
+define('CORE_PATH', __DIR__ . '/');
+
 class Bootstrap {
 
     public function __construct(Container $di) {
@@ -12,6 +14,11 @@ class Bootstrap {
         $module      = $this->routeInfo['module'];
         $controller  = $this->routeInfo['controller'];
         $action      = $this->routeInfo['action'];
+    }
+
+    public function load($class, $file = '') {
+        // @TODO
+        return (class_exists($class, false) || interface_exists($class, false));
     }
 
     public function __set($key, $val) {
