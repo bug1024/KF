@@ -1,0 +1,20 @@
+{
+    "name": "bug1024/kf",
+    "description": "A simple PHP Framework Just for fun",
+    "authors": [
+        {
+            "name": "bug1024",
+            "email": "bug_1024@163.com"
+        }
+    ],
+    "require": {},
+    "repositories": [
+        {
+            "packagist": false
+        },
+        {
+            "type": "composer",
+            "url": "http://packagist.phpcomposer.com"
+        }
+    ]
+}
