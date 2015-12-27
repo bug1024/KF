@@ -1,4 +1,4 @@
-<?php
+<?php namespace core;
 
 class Container {
 
@@ -12,7 +12,7 @@ class Container {
         if (isset($this->_service[$name])) {
            return $this->_make($this->_service[$name]);
         }
-        throw new Exception('Alias does not exist');
+        throw new \Exception('Alias does not exist');
     }
 
     public function __set($name, $service) {
@@ -24,14 +24,13 @@ class Container {
     }
 
     protected function _make($class) {
-        if ($class instanceof Closure) {
+        if ($class instanceof \Closure) {
             return $class($this);
         }
 
-        $reflector = new ReflectionClass($class);
-
+        $reflector = new \ReflectionClass($class);
         if (!$reflector->isInstantiable()) {
-            throw new Exception('is not instantiable');
+            throw new \Exception('is not instantiable');
         }
 
         $constructor = $reflector->getConstructor();
@@ -67,7 +66,7 @@ class Container {
             return $param->getDefaultValue();
         }
 
-        throw new Exception('Are you OK?');
+        throw new \Exception('Are you OK?');
     }
 
 }

@@ -1,10 +1,8 @@
-<?php
-
-define('CORE_PATH', __DIR__ . '/');
+<?php namespace core;
 
 class Bootstrap {
 
-    public function __construct(Container $di) {
+    public function __construct($di) {
         $this->di        = $di;
         $this->routeInfo = $this->di->get('route')->getInfo();
     }
