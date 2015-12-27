@@ -4,6 +4,8 @@ class Container {
 
     protected $_service = [];
 
+    protected $_singleton = [];
+
     public function set($name, Callable $service) {
         $this->_service[$name] = $service;
     }

@@ -2,18 +2,23 @@
 
 abstract class Controller {
 
-    public function __construct() {}
+    public function __construct($di) {
+        $this->di       = $di;
+        $this->request  = $this->di->get('request');
+        $this->response = $this->di->get('response');
+        $this->view     = $this->di->get('view');
+    }
 
     protected function get($key = null, $default = null) {
-        return Request::get($key, $default);
+        return $this->request->get($key, $default);
     }
 
     protected function post($key = null, $default = null) {
-        return Request::post($key, $default);
+        return $this->request->post($key, $default);
     }
 
-    protected function view($viewsHome = null) {
-        return $this->view = new View($viewsHome);
+    protected function assign($key, $val) {
+        $this->view->assign($key, $val);
     }
 
     protected function display($tpl = null, $dir = null) {

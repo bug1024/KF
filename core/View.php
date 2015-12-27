@@ -8,6 +8,10 @@ class View {
         $this->viewsHome = $viewsHome;
     }
 
+    public function assign($key, $val) {
+        $this->$key = $val;
+    }
+
     public function fetch($tpl, $dir = null) {
         ob_start();
         ob_implicit_flush(0);
