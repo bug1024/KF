@@ -13,8 +13,12 @@ ini_set('display_errors', 'ON');
 
 // constants
 define('CORE_PATH', __DIR__ . '/core/');
+define('CONFIG_PATH', __DIR__ . '/config/');
 define('APP_PATH', __DIR__ . '/app/');
-define('VIEW_PATH', APP_PATH . 'view/');
+define('VIEW_PATH', __DIR__ . '/view/');
+
+// env
+require CONFIG_PATH . 'env.php';
 
 // autoload
 require CORE_PATH . 'Loader.php';
