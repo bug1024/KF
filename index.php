@@ -7,6 +7,7 @@ use core\Request;
 use core\Response;
 use core\View;
 use core\KF;
+use core\ext\db\DBMysqli;
 
 error_reporting(E_ALL);
 ini_set('display_errors', 'ON');
@@ -49,6 +50,11 @@ try {
 
     $di->set('view', function() {
         return (new View(VIEW_PATH));
+    });
+
+    $di->set('db', function() {
+        $db = include CONFIG_PATH . 'db.php';
+        return (new DBMysqli($db['db1']));
     });
 
     $app = new KF($di);
