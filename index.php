@@ -29,12 +29,13 @@ define('APP1_PATH', __DIR__ . '/app1/');
 require CORE_PATH . 'Loader.php';
 (new Loader)
     ->addNamespace('core', CORE_PATH)
+    ->addNamespace('api', API_PATH)
     ->addNamespace('app', APP_PATH)
     ->addNamespace('app1', APP1_PATH)
     ->register();
 
 try {
-    $di = new Container;
+    $di = Container::instance();
 
     $di->set('route', function() {
         return (new Route());

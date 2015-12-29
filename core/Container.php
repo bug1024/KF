@@ -6,6 +6,16 @@ class Container {
 
     protected $_singleton = [];
 
+    protected static $_instance = null;
+
+    public static function instance() {
+        if (self::$_instance == null) {
+            return new self();
+        } else {
+            return self::$_instance;
+        }
+    }
+
     public function set($name, Callable $service) {
         $this->_service[$name] = $service;
     }

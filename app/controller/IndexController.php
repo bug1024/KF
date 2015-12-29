@@ -1,13 +1,15 @@
 <?php namespace app\controller;
 
 use core\Controller;
+use api\interfaces\DemoInterface;
 
 class IndexController extends Controller {
 
 
     public function indexAction() {
-        $db    = $this->di->get('db');
-        $users = $db->sql('select * from users');
+
+        $ret = DemoInterface::get();
+        var_dump($ret);
 
         $this->assign('framework', 'KF');
         $this->assign('users', $users);
