@@ -10,10 +10,14 @@ class Container {
 
     public static function instance() {
         if (self::$_instance == null) {
-            return new self();
+            return self::$_instance = new self();
         } else {
             return self::$_instance;
         }
+    }
+
+    public function getServices() {
+        return $this->_service;
     }
 
     public function set($name, Callable $service) {

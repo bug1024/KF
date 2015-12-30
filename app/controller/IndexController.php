@@ -12,7 +12,6 @@ class IndexController extends Controller {
         var_dump($ret);
 
         $this->assign('framework', 'KF');
-        $this->assign('users', $users);
         $this->display('index.php');
     }
 

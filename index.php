@@ -53,7 +53,7 @@ try {
         return (new View(VIEW_PATH));
     });
 
-    $di->set('db', function() {
+    $di->set('db1', function() {
         $db = include CONFIG_PATH . 'db.php';
         return (new DBMysqli($db['db1']));
     });
