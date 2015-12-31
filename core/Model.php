@@ -15,6 +15,28 @@ abstract class Model {
        $this->handle = $di->get($this->database);
     }
 
+    public function getOne() {
+    }
+
+    public function getRows() {
+    }
+
+    public function getCount() {
+    }
+
+    public function insert() {
+    }
+
+    public function delete() {
+    }
+
+    public function lastSql() {
+    }
+
+    public function lastId() {
+    }
+
+
     public function __call($method, $argv) {
         //return call_user_func_array([$this->db, $method], $argv);
     }
