@@ -159,3 +159,4 @@ abstract class DBAbstract {
     abstract public function escape($str);
 
 }
+

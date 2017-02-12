@@ -11,7 +11,7 @@ class IndexController extends Controller {
         $ret = DemoInterface::get();
         var_dump($ret);
 
-        $this->assign('framework', 'KF');
+        $this->assign('framework', 'jeet-php');
         $this->display('index.php');
     }
 

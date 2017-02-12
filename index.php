@@ -6,7 +6,7 @@ use core\Route;
 use core\Request;
 use core\Response;
 use core\View;
-use core\KF;
+use core\Bootstrap;
 use core\ext\db\DBMysqli;
 
 error_reporting(E_ALL);
@@ -58,7 +58,8 @@ try {
         return (new DBMysqli($db['db1']));
     });
 
-    $app = new KF($di);
+    $app = new Bootstrap($di);
 } catch (\Exception $e) {
     var_dump($e->getMessage());
 }
+

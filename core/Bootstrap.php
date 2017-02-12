@@ -1,6 +1,6 @@
 <?php namespace core;
 
-class KF {
+class Bootstrap {
 
     public function __construct($di) {
         $this->di        = $di;
@@ -33,3 +33,4 @@ class KF {
     }
 
 }
+
