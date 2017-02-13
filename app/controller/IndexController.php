@@ -1,14 +1,13 @@
 <?php namespace app\controller;
 
 use core\Controller;
-use api\interfaces\DemoInterface;
+use api\logic\DemoLogic;
 
 class IndexController extends Controller {
 
-
     public function indexAction() {
 
-        $ret = DemoInterface::get();
+        $ret = DemoLogic::getList([]);
         var_dump($ret);
 
         $this->assign('framework', 'jeet-php');

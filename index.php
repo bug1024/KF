@@ -6,6 +6,7 @@ use core\Route;
 use core\Request;
 use core\Response;
 use core\View;
+use core\Conf;
 use core\Bootstrap;
 use core\ext\db\DBMysqli;
 
@@ -54,7 +55,7 @@ try {
     });
 
     $di->set('db1', function() {
-        $db = include CONFIG_PATH . 'db.php';
+        $db = Conf::get('db/db1');
         return (new DBMysqli($db['db1']));
     });
 
