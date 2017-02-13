@@ -25,14 +25,12 @@ define('VIEW_PATH', __DIR__ . '/view/');
 define('APP_PATH', __DIR__ . '/app/');
 define('APP1_PATH', __DIR__ . '/app1/');
 
-
 // autoload
 require CORE_PATH . 'Loader.php';
 (new Loader)
     ->addNamespace('core', CORE_PATH)
     ->addNamespace('api', API_PATH)
     ->addNamespace('app', APP_PATH)
-    ->addNamespace('app1', APP1_PATH)
     ->register();
 
 try {
@@ -55,8 +53,8 @@ try {
     });
 
     $di->set('db1', function() {
-        $db = Conf::get('db/db1');
-        return (new DBMysqli($db['db1']));
+        $config = Conf::get('db/db1');
+        return (new DBMysqli($config));
     });
 
     $app = new Bootstrap($di);

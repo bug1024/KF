@@ -6,22 +6,21 @@ class Conf {
      * @param string $key db/db1
      * @return mixed
      */
-    public static function get($key) {
-        list($file, $key) = self::_parseKey($key);
-
+    public static function get($config_key) {
+        list($file, $key) = self::_parseKey($config_key);
         $config = [];
-        if (is_file(CONF_PATH . $file . '.php')) {
-            $config = include CONF_PATH . $file . '.php';
+        if (is_file(CONFIG_PATH. $file . '.php')) {
+            $config = include CONFIG_PATH. $file . '.php';
         }
 
         return is_array($config) && isset($config[$key]) ? $config[$key] : false;
     }
 
-    public static function set($key, $config) {
+    public static function set($config_key, $config) {
     }
 
-    protected static function _parseKey($key) {
-        return explode('/', $key);
+    protected static function _parseKey($config_key) {
+        return explode('/', $config_key);
     }
 
 }

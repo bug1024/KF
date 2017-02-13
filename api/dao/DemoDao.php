@@ -3,7 +3,8 @@
 class DemoDao {
 
     public static function  getList($param) {
-        return ['name' => 'jeet'];
+        $db = (\core\Container::instance())->get('db1');
+        return $db->sql('select * from toutiao limit 1');
     }
 
 }
