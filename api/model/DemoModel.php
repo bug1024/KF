@@ -1,6 +1,6 @@
-<?php namespace api\dao;
+<?php namespace api\model;
 
-class DemoDao extends \core\Model {
+class DemoModel extends \core\Model {
 
     protected $_database = 'db1';
 

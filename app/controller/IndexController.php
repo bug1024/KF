@@ -6,7 +6,6 @@ use api\logic\DemoLogic;
 class IndexController extends Controller {
 
     public function indexAction() {
-
         $ret = DemoLogic::getOne([]);
         var_dump($ret);
 
@@ -15,9 +14,8 @@ class IndexController extends Controller {
     }
 
     public function listAction() {
-        var_dump('list');
+        $ret = DemoLogic::getOne([]);
+        echo json_encode($ret);
     }
 }
-
-
 
