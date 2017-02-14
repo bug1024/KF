@@ -96,8 +96,7 @@ class DBMysqli extends DBAbstract {
 
     public function lastInsertId() {
         return $this->conn->insert_id;
-    }
-
+    } 
     public function beginTransaction() {
         return $this->conn->autocommit(false);
     }

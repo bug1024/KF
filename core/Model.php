@@ -4,18 +4,20 @@ use core\ext\db\DBMysqli;
 
 abstract class Model {
 
-    protected $database;
+    protected $_database;
 
-    protected $table;
+    protected $_table;
 
-    protected $handle = null;
+    protected $_handle = null;
 
     public function __construct() {
        $di = Container::instance();
-       $this->handle = $di->get($this->database);
+       $this->_handle = $di->get($this->_database);
     }
 
     public function getOne() {
+        $sql = "select * from {$this->_table} limit 1";
+        return $this->_handle->sql($sql);
     }
 
     public function getRows() {

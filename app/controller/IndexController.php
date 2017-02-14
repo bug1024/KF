@@ -7,7 +7,7 @@ class IndexController extends Controller {
 
     public function indexAction() {
 
-        $ret = DemoLogic::getList([]);
+        $ret = DemoLogic::getOne([]);
         var_dump($ret);
 
         $this->assign('framework', 'jeet-php');

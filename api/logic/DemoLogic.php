@@ -2,8 +2,8 @@
 
 class DemoLogic {
 
-    public static function  getList($param) {
-        return \api\dao\DemoDao::getList($param);
+    public static function  getOne($param) {
+        return (new \api\dao\DemoDao)->getOne($param);
     }
 
 }

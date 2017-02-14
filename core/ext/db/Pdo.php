@@ -66,9 +66,9 @@ class Mysql {
 
                 if (0 === $type) {
                     $replace = self::instance()->quote($args[$c]);
-                } elseif (1 === $type) {
+                } else if (1 === $type) {
                     $replace = intval($args[$c]);
-                } elseif (2 === $type) {
+                } else if (2 === $type) {
                     foreach ($args[$c] as &$value) {
                         $value = self::instance()->quote($value);
                     }
@@ -89,5 +89,6 @@ class Mysql {
     public static function __callStatic($method, $args) {
         return call_user_func_array(array(self::instance(), $method), $args);
     }
+
 }
 

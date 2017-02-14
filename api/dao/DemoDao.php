@@ -1,11 +1,10 @@
 <?php namespace api\dao;
 
-class DemoDao {
+class DemoDao extends \core\Model {
 
-    public static function  getList($param) {
-        $db = (\core\Container::instance())->get('db1');
-        return $db->sql('select * from toutiao limit 1');
-    }
+    protected $_database = 'db1';
+
+    protected $_table = 'toutiao';
 
 }
 
