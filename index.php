@@ -8,7 +8,7 @@ use core\Response;
 use core\View;
 use core\Conf;
 use core\Bootstrap;
-use core\ext\db\DBMysqli;
+use core\db\DBMysqli;
 
 error_reporting(E_ALL);
 ini_set('display_errors', 'ON');
@@ -17,13 +17,12 @@ ini_set('display_errors', 'ON');
 define('CONF_PATH', __DIR__ . '/config/');
 define('COMMON_CONFIG_PATH', CONF_PATH. 'common/');
 // env
-require CONF_PATH . 'env.php';
+require __DIR__ . '/env.php';
 define('CONFIG_PATH', CONF_PATH . ENV . '/');
 define('CORE_PATH', __DIR__ . '/core/');
 define('API_PATH', __DIR__ . '/api/');
 define('VIEW_PATH', __DIR__ . '/view/');
 define('APP_PATH', __DIR__ . '/app/');
-define('APP1_PATH', __DIR__ . '/app1/');
 
 // autoload
 require CORE_PATH . 'Loader.php';
@@ -50,11 +49,6 @@ try {
 
     $di->set('view', function() {
         return (new View(VIEW_PATH));
-    });
-
-    $di->set('db1', function() {
-        $config = Conf::get('db/db1');
-        return (new DBMysqli($config));
     });
 
     $app = new Bootstrap($di);

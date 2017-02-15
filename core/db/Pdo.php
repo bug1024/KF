@@ -1,4 +1,4 @@
-<?php namespace core\ext\db;
+<?php namespace core\db;
 
 class Mysql {
 

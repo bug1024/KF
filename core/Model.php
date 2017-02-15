@@ -1,6 +1,6 @@
 <?php namespace core;
 
-use core\ext\db\DBMysqli;
+use core\db\DBMysqli;
 
 abstract class Model {
 
@@ -11,8 +11,12 @@ abstract class Model {
     protected $_handle = null;
 
     public function __construct() {
-       $di = Container::instance();
-       $this->_handle = $di->get($this->_database);
+        $di = Container::instance();
+        $di->set($this->_database, function() {
+            $config = Conf::get('db/' . $this->_database);
+            return (new DBMysqli($config));
+        }, true);
+        $this->_handle = $di->get($this->_database);
     }
 
     public function getOne() {

@@ -1,4 +1,4 @@
-<?php namespace core\ext\db;
+<?php namespace core\db;
 
 abstract class DBAbstract {
 
@@ -13,6 +13,7 @@ abstract class DBAbstract {
     public $log = [];
 
     public function __construct($config) {
+        echo microtime(true);
         $this->config = $config;
     }
 
