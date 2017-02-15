@@ -20,22 +20,20 @@ class Container {
         return $this->_service;
     }
 
-    public function set($name, Callable $service, $is_singleton = false) {
+    public function set($name, Callable $service) {
         $this->_service[$name] = $service;
-        if ($is_singleton) {
-            $this->_singleton[$name] = 1;
-        }
     }
 
-    public function get($name) {
+    public function get($name, $is_singleton = false) {
         if (isset($this->_service[$name])) {
-            if (isset($this->_singleton[$name])) {
-                if ($this->_singleton === 1) {
-                    return $this->_singleton[$name] = $this->_make($this->_service[$name]);
-                } else {
-                    return $this->_singleton[$name];
+            if ($is_singleton) {
+                if (!isset($this->_singleton[$name])) {
+                    $this->_singleton[$name] = $this->_make($this->_service[$name]);
                 }
+
+                return $this->_singleton[$name];
             }
+
             return $this->_make($this->_service[$name]);
         }
         throw new \Exception('Alias does not exist');

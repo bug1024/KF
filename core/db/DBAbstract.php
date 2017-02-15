@@ -13,7 +13,6 @@ abstract class DBAbstract {
     public $log = [];
 
     public function __construct($config) {
-        echo microtime(true);
         $this->config = $config;
     }
 

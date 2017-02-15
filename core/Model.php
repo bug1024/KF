@@ -15,8 +15,8 @@ abstract class Model {
         $di->set($this->_database, function() {
             $config = Conf::get('db/' . $this->_database);
             return (new DBMysqli($config));
-        }, true);
-        $this->_handle = $di->get($this->_database);
+        });
+        $this->_handle = $di->get($this->_database, true);
     }
 
     public function getOne() {
