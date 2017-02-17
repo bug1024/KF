@@ -9,6 +9,9 @@ class IndexController extends Controller {
         $ret = DemoLogic::getOne([]);
         var_dump($ret);
 
+        $ret = DemoLogic::getCache();
+        var_dump($ret);
+
         $this->assign('framework', 'jeet-php');
         $this->display('index.php');
     }

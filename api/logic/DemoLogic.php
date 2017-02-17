@@ -7,5 +7,10 @@ class DemoLogic {
         return (new \api\model\DemoModel)->getOne($param);
     }
 
+    public static function getCache() {
+        $redis = (new \core\cache\RedisClient(\core\Conf::get('redis/redis1')));
+        return $redis->get('key');
+    }
+
 }
 
