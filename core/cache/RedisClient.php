@@ -19,7 +19,11 @@ class RedisClient extends CacheAbstract {
         }
     }
 
-    public function set($key, $value, $expire = 0) {
+    public function set($key, $value, $expire = null) {
+        if ($expire === null) {
+            return $this->_redis->set($key, $value);
+        }
+
         return $this->_redis->set($key, $value, $expire);
     }
 
