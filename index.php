@@ -23,6 +23,7 @@ define('CORE_PATH', __DIR__ . '/core/');
 define('API_PATH', __DIR__ . '/api/');
 define('VIEW_PATH', __DIR__ . '/view/');
 define('APP_PATH', __DIR__ . '/app/');
+define('DATA_PATH', __DIR__ . '/data/');
 
 // autoload
 require CORE_PATH . 'Loader.php';

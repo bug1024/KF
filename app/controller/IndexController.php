@@ -2,6 +2,7 @@
 
 use core\Controller;
 use api\logic\DemoLogic;
+use core\log\Log;
 
 class IndexController extends Controller {
 
@@ -10,7 +11,8 @@ class IndexController extends Controller {
         var_dump($ret);
 
         $name = DemoLogic::getName();
-
+        Log::setDriver('File');
+        Log::debug('this is log');
         $this->assign('framework', $name);
         $this->display('index.php');
     }
