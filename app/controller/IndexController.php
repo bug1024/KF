@@ -11,7 +11,6 @@ class IndexController extends Controller {
         var_dump($ret);
 
         $name = DemoLogic::getName();
-        Log::setDriver('File');
         Log::debug('this is log');
         $this->assign('framework', $name);
         $this->display('index.php');

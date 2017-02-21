@@ -2,17 +2,6 @@
 
 class Log {
 
-    protected static $_driver;
-
-    public static function setDriver($driver = 'File') {
-        $di = \core\Container::instance();
-        $di->set('log', function() use ($driver) {
-            $class = '\\core\\log\drivers\\' . $driver;
-            return new $class;
-        });
-        self::$_driver = $di->get('log', true);
-    }
-
     public static function debug($msg) {
         return self::_write('DEBUG', $msg);
     }
@@ -30,7 +19,9 @@ class Log {
             $msg = json_encode($msg);
         }
 
-        return self::$_driver->write($type, $msg);
+        $di = \core\Container::instance();
+
+        return $di->get('log', true)->write($type, $msg);
     }
 
 }

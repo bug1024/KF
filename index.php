@@ -13,6 +13,8 @@ use core\db\DBMysqli;
 error_reporting(E_ALL);
 ini_set('display_errors', 'ON');
 
+date_default_timezone_set('PRC');
+
 // constants
 define('CONF_PATH', __DIR__ . '/config/');
 define('COMMON_CONFIG_PATH', CONF_PATH. 'common/');
@@ -24,6 +26,7 @@ define('API_PATH', __DIR__ . '/api/');
 define('VIEW_PATH', __DIR__ . '/view/');
 define('APP_PATH', __DIR__ . '/app/');
 define('DATA_PATH', __DIR__ . '/data/');
+define('LOG_DRIVER', 'File');
 
 // autoload
 require CORE_PATH . 'Loader.php';
@@ -50,6 +53,11 @@ try {
 
     $di->set('view', function() {
         return (new View(VIEW_PATH));
+    });
+
+    $di->set('log', function() {
+        $class = '\\core\\log\drivers\\' . LOG_DRIVER;
+        return new $class;
     });
 
     $app = new Bootstrap($di);
