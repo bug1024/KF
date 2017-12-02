@@ -1,5 +1,5 @@
 # jeet-php
-A Simple PHP Framework Just for Fun
+A simple PHP framework just for fun
 
 ## structure
  - api
